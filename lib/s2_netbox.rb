@@ -44,7 +44,8 @@ module S2Netbox
 
     req = Net::HTTP::Post.new(uri)
 
-    req.body = "APIcommand=<NETBOX-API#{blank?(session_id) ? '' : " sessionid='#{session_id}'"}>#{command}</NETBOX-API>"
+    req.body = "<NETBOX-API#{blank?(session_id) ? '' : " sessionid='#{session_id}'"}>#{command}</NETBOX-API>"
+    # req.body = "APIcommand=<NETBOX-API#{blank?(session_id) ? '' : " sessionid='#{session_id}'"}>#{command}</NETBOX-API>"
     req.content_type = 'text/xml'
 
     response = nil
